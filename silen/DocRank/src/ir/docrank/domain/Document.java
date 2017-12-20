@@ -51,10 +51,10 @@ public class Document {
 	
 	
 	public void addLocations(String locations) {
-		locations = locations.substring(1, locations.length()-1);
-		String[] locs = locations.split(",");
-		for(String loc:locs) {
-			this.location_list.add(Integer.parseInt(loc));
-		}		
+		// locations = locations.substring(1, locations.length()-1);
+		// String[] locs = locations.split(",");
+		// for(String loc:locs) {
+		// 	this.location_list.add(Integer.parseInt(loc));
+		// }		
 	}
 }

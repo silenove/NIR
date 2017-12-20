@@ -359,8 +359,8 @@ public class DocRank {
 		//计算Wt_d
 		for(String s:Wt_q.keySet()) {
 			int tf = string2Term.get(s).getTfByDocID(docID);
-			int df = string2Term.get(s).getDf();
-			double idf = Math.log10(this.docsSize/df);
+			int df = 1;
+			double idf = 1.0;
 			Wt_d.put(s, this.calculateWF(tf)*idf);
 			length += Math.pow(Wt_d.get(s), 2);
 		}
@@ -475,6 +475,17 @@ public class DocRank {
 			return 1+Math.log10(tf);
 		}else {
 			return 0;
+		}
+	}
+
+	public static void main(String[] args) {
+		DocRank dr = new DocRank();
+		try {
+			String output = dr.rankDocs(args[0]);
+			System.out.println(output);
+		} catch (NullPointerException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 	
